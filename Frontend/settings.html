@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Settings — Tally</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<script src="js/theme.js"></script>
+</head>
+<body>
+<main class="settings">
+  <a class="back" href="dashboard.html" id="back-link"></a>
+  <h1>Settings</h1>
+  <section class="set-section"><div><h2>Appearance</h2><p class="desc">Choose how Tally looks on this device.</p></div>
+    <div class="segmented" role="radiogroup" aria-label="Theme">
+      <label><input type="radio" name="theme" value="light"> ☀️ Light</label>
+      <label><input type="radio" name="theme" value="dark"> 🌙 Dark</label></div></section>
+  <section class="set-section"><div><h2>Account</h2></div><div class="acct" id="account"></div></section>
+  <section class="set-section"><div><h2>Manage lists</h2><p class="desc">Rename your lists or delete the ones you no longer need. Daily, Weekly and Monthly stay.</p></div>
+    <div><ul class="manage" id="manage"></ul>
+      <form class="add-list" id="add-list" novalidate><label class="sr-only" for="new-name">New list name</label>
+        <input class="input" id="new-name" placeholder="New list name" maxlength="60" autocomplete="off"><button class="btn btn-secondary" type="submit">+ Create new list</button></form></div></section>
+</main>
+<script src="js/api.js"></script><script src="js/ui.js"></script><script src="js/settings.js"></script>
+</body>
+</html>

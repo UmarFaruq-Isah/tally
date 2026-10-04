@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Dashboard — Tally</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/theme.js"></script>
+  </head>
+  <body>
+    <div class="app" id="app">
+      <aside class="sidebar" id="sidebar" aria-label="Lists">
+        <a class="brand" href="../index.html">Tally</a>
+        <nav>
+          <div class="side-group">
+            <h2>Lists</h2>
+            <ul id="default-lists"></ul>
+          </div>
+          <div class="side-group" style="margin-top: 1.5rem">
+            <h2>My lists</h2>
+            <ul id="custom-lists"></ul>
+            <button
+              class="btn btn-ghost btn-sm side-add"
+              type="button"
+              id="new-list-btn"
+            >
+              + Create new list
+            </button>
+          </div>
+        </nav>
+        <div class="side-foot">
+          <a href="settings.html">Settings</a
+          ><button
+            class="icon-btn theme-toggle"
+            type="button"
+            data-theme-toggle
+          ></button>
+        </div>
+      </aside>
+      <div class="scrim" id="scrim"></div>
+      <main class="main">
+        <div class="main-inner">
+          <div class="topbar">
+            <button
+              class="icon-btn menu-btn"
+              type="button"
+              id="menu-btn"
+              aria-label="Open lists"
+            ></button>
+            <h1 id="list-title">Daily</h1>
+            <button class="btn btn-primary" type="button" id="new-task-btn">
+              + New Task
+            </button>
+          </div>
+          <div class="toolbar">
+            <div class="search">
+              <label class="sr-only" for="search">Search tasks</label
+              ><input
+                class="input"
+                id="search"
+                type="search"
+                placeholder="Search tasks…"
+                autocomplete="off"
+              />
+            </div>
+            <div>
+              <label class="sr-only" for="filter">Filter</label
+              ><select class="select" id="filter">
+                <option value="all">All tasks</option>
+                <option value="active">Open</option>
+                <option value="completed">Completed</option>
+                <option value="due_today">Due today</option>
+                <option value="overdue">Overdue</option>
+              </select>
+            </div>
+            <div>
+              <label class="sr-only" for="sort">Sort by</label
+              ><select class="select" id="sort">
+                <option value="manual">Custom order</option>
+                <option value="created">Date created</option>
+                <option value="due">Due date</option>
+                <option value="priority">Priority</option>
+              </select>
+            </div>
+          </div>
+          <ul class="tasks" id="tasks"></ul>
+          <div class="empty" id="empty" hidden></div>
+          <p class="hint-line" id="drag-hint" hidden>
+            Drag the handles to reorder. Switch to Custom order with no filter
+            to turn this on.
+          </p>
+        </div>
+      </main>
+    </div>
+
+    <dialog id="task-dialog" aria-labelledby="task-dlg-title">
+      <form class="dlg-form" id="task-form" novalidate>
+        <h2 id="task-dlg-title">New task</h2>
+        <div class="field">
+          <label for="f-title">Title</label>
+          <input
+            class="input"
+            id="f-title"
+            name="title"
+            maxlength="200"
+            required
+            autocomplete="off"
+          />
+          <span class="error" id="f-title-err" hidden
+            >Enter a title for this task.</span
+          >
+        </div>
+        <div class="field">
+          <label for="f-desc"
+            >Description <span class="hint">(optional)</span></label
+          >
+          <textarea class="textarea" id="f-desc" name="description"></textarea>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-due"
+              >Due date <span class="hint">(optional)</span></label
+            ><input class="input" type="date" id="f-due" name="due_date" />
+          </div>
+          <div class="field">
+            <label for="f-pri">Priority</label
+            ><select class="select" id="f-pri" name="priority">
+              <option value="low">🟢 Low</option>
+              <option value="medium" selected>🟡 Medium</option>
+              <option value="high">🔴 High</option>
+            </select>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="f-rec">Repeat</label
+            ><select class="select" id="f-rec" name="recurrence">
+              <option value="none">None</option>
+              <option value="daily">Daily</option>
+              <option value="weekly">Weekly</option>
+              <option value="monthly">Monthly</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-list">List</label
+            ><select class="select" id="f-list" name="list_id"></select>
+          </div>
+        </div>
+        <div class="dlg-actions">
+          <button class="btn btn-secondary" type="button" id="task-cancel">
+            Cancel</button
+          ><button class="btn btn-primary" type="submit">Save</button>
+        </div>
+      </form>
+    </dialog>
+
+    <dialog id="list-dialog" aria-labelledby="list-dlg-title">
+      <form class="dlg-form" id="list-form" novalidate>
+        <h2 id="list-dlg-title">Create new list</h2>
+        <div class="field">
+          <label for="l-name">List name</label
+          ><input class="input" id="l-name" maxlength="60" autocomplete="off" />
+          <span class="error" id="l-name-err" hidden
+            >Enter a name for this list.</span
+          >
+        </div>
+        <div class="dlg-actions">
+          <button class="btn btn-secondary" type="button" id="list-cancel">
+            Cancel</button
+          ><button class="btn btn-primary" type="submit">Create list</button>
+        </div>
+      </form>
+    </dialog>
+    <script src="js/api.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>
