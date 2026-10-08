@@ -13,7 +13,7 @@
   var CONFIG = {
     MODE: IS_PAGES ? 'local' : 'remote',   // 'remote' = signed-in users use the API | 'local' = guest-only
     API_BASE: '/api',                      // same origin as the page (Express serves this frontend)
-    APP_URL: ''                            // your Render URL, e.g. 'https://tally.onrender.com' (no trailing slash).
+    APP_URL: 'https://tally-6cxz.onrender.com'                            // your Render URL, e.g. 'https://tally.onrender.com' (no trailing slash).
                                            // Used by the GitHub Pages demo to send people to the full app.
   };
 
