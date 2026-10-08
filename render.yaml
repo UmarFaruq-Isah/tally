@@ -1,0 +1,25 @@
+# Render Blueprint: New -> Blueprint -> pick this repo. You only fill in the values marked "sync: false".
+services:
+  - type: web
+    name: tally
+    runtime: node
+    plan: free
+    rootDir: Backend
+    buildCommand: npm install
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: NODE_VERSION
+        value: 20
+      - key: NODE_ENV
+        value: production
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: DATABASE_URL        # Supabase "Session pooler" connection string
+        sync: false
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: BASE_URL            # https://<your-service>.onrender.com  (no trailing slash)
+        sync: false

@@ -1,149 +1,55 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Tally — Organize your life with ease</title>
-    <meta
-      name="description"
-      content="Daily, weekly and monthly task lists with due dates, priorities and repeating tasks."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap"
-    />
-    <link rel="stylesheet" href="Frontend/css/styles.css" />
-    <script src="Frontend/js/theme.js"></script>
-    <script>
-      // Returning visitors skip the landing page.
-      // location.replace() keeps index.html out of the history, so Back doesn't bounce them.
-      try {
-        if (
-          localStorage.getItem("tm.session") &&
-          !location.search.includes("home")
-        ) {
-          location.replace("Frontend/dashboard.html");
-        }
-      } catch (e) {}
-    </script>
-  </head>
-  <body>
-    <header class="site-header">
-      <a class="brand" href="index.html">Tally</a>
-      <nav class="site-nav" aria-label="Main">
-        <a class="btn btn-ghost btn-sm" href="Frontend/login.html">Sign in</a>
-        <button
-          class="icon-btn theme-toggle"
-          type="button"
-          data-theme-toggle
-        ></button>
-      </nav>
-    </header>
-    <main>
-      <section class="hero">
-        <div>
-          <h1>Organize your life with ease.</h1>
-          <p class="lede">
-            Keep daily, weekly and monthly lists in one place. Add due dates,
-            priorities and repeating tasks, with or without an account.
-          </p>
-          <div class="actions">
-            <a
-              class="btn btn-primary"
-              href="Frontend/dashboard.html"
-              id="start-guest"
-              >Start without an account</a
-            >
-            <a class="btn btn-secondary" href="Frontend/login.html">
-              <svg
-                class="icon"
-                viewBox="0 0 24 24"
-                aria-hidden="true"
-                style="stroke: none"
-              >
-                <path
-                  fill="#4285F4"
-                  d="M21.6 12.23c0-.68-.06-1.33-.17-1.96H12v3.7h5.39a4.6 4.6 0 0 1-2 3.02v2.5h3.23c1.89-1.74 2.98-4.3 2.98-7.26z"
-                />
-                <path
-                  fill="#34A853"
-                  d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.23-2.5c-.9.6-2.04.96-3.39.96-2.6 0-4.8-1.76-5.59-4.12H3.07v2.58A10 10 0 0 0 12 22z"
-                />
-                <path
-                  fill="#FBBC05"
-                  d="M6.41 13.91a6 6 0 0 1 0-3.82V7.5H3.07a10 10 0 0 0 0 9z"
-                />
-                <path
-                  fill="#EA4335"
-                  d="M12 6c1.47 0 2.79.5 3.83 1.5l2.87-2.87A10 10 0 0 0 3.07 7.5l3.34 2.59C7.2 7.76 9.4 6 12 6z"
-                />
-              </svg>
-              Sign in with Google</a
-            >
-          </div>
-        </div>
-        <aside class="demo" aria-label="Example task list">
-          <div class="demo-head">
-            <h2>Daily</h2>
-            <span id="demo-count">1 of 4 done</span>
-          </div>
-          <ul id="demo-list">
-            <li class="done">
-              <input class="checkbox" type="checkbox" id="d1" checked /><label
-                for="d1"
-                ><span class="t">Review the pull request</span
-                ><small>🔴 High</small></label
-              >
-            </li>
-            <li>
-              <input class="checkbox" type="checkbox" id="d2" /><label for="d2"
-                ><span class="t">Water the plants</span
-                ><small>Repeats daily</small></label
-              >
-            </li>
-            <li>
-              <input class="checkbox" type="checkbox" id="d3" /><label for="d3"
-                ><span class="t">Plan next week</span
-                ><small>🟡 Medium · Due on Friday</small></label
-              >
-            </li>
-            <li>
-              <input class="checkbox" type="checkbox" id="d4" /><label for="d4"
-                ><span class="t">Call the landlord</span
-                ><small>🟢 Low</small></label
-              >
-            </li>
-          </ul>
-        </aside>
-      </section>
-      <section class="points" aria-label="Features">
-        <div>
-          <h3>Lists that match your rhythm</h3>
-          <p>
-            Daily, Weekly and Monthly lists are ready on day one. Create your
-            own for anything else.
-          </p>
-        </div>
-        <div>
-          <h3>Tasks that repeat themselves</h3>
-          <p>
-            Set a task to repeat daily, weekly or monthly. The next one appears
-            when you finish the last.
-          </p>
-        </div>
-        <div>
-          <h3>Works without an account</h3>
-          <p>
-            Start right away and your tasks stay on this device. Sign in with
-            Google when you want them everywhere.
-          </p>
-        </div>
-      </section>
-    </main>
-    <footer class="site-footer">Tally</footer>
-    <script src="Frontend/js/api.js"></script>
-    <script src="Frontend/js/landing.js"></script>
-  </body>
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tally — Organize your life with ease</title>
+<meta name="description" content="Daily, weekly and monthly task lists with due dates, priorities and repeating tasks.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="Frontend/css/styles.css">
+<script src="Frontend/js/theme.js"></script>
+<script>
+  // Returning visitors skip the landing page. Add ?home to the URL to see it on purpose.
+  try { if (localStorage.getItem('tm.session') && !location.search.includes('home')) location.replace("Frontend/dashboard.html"); } catch (e) {}
+</script>
+</head>
+<body>
+<header class="site-header">
+  <a class="brand" href="index.html?home">Tally</a>
+  <nav class="site-nav" aria-label="Main">
+    <a class="btn btn-ghost btn-sm" href="Frontend/login.html">Sign in</a>
+    <button class="icon-btn theme-toggle" type="button" data-theme-toggle></button>
+  </nav>
+</header>
+<main>
+  <section class="hero">
+    <div>
+      <h1>Organize your life with ease.</h1>
+      <p class="lede">Keep daily, weekly and monthly lists in one place. Add due dates, priorities and repeating tasks, with or without an account.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="Frontend/dashboard.html" id="start-guest">Start without an account</a>
+        <a class="btn btn-secondary" href="Frontend/login.html">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true" style="stroke:none"><path fill="#4285F4" d="M21.6 12.23c0-.68-.06-1.33-.17-1.96H12v3.7h5.39a4.6 4.6 0 0 1-2 3.02v2.5h3.23c1.89-1.74 2.98-4.3 2.98-7.26z"/><path fill="#34A853" d="M12 22c2.7 0 4.96-.9 6.62-2.43l-3.23-2.5c-.9.6-2.04.96-3.39.96-2.6 0-4.8-1.76-5.59-4.12H3.07v2.58A10 10 0 0 0 12 22z"/><path fill="#FBBC05" d="M6.41 13.91a6 6 0 0 1 0-3.82V7.5H3.07a10 10 0 0 0 0 9z"/><path fill="#EA4335" d="M12 6c1.47 0 2.79.5 3.83 1.5l2.87-2.87A10 10 0 0 0 3.07 7.5l3.34 2.59C7.2 7.76 9.4 6 12 6z"/></svg>
+          Sign in with Google</a>
+      </div>
+    </div>
+    <aside class="demo" aria-label="Example task list">
+      <div class="demo-head"><h2>Daily</h2><span id="demo-count">1 of 4 done</span></div>
+      <ul id="demo-list">
+        <li class="done"><input class="checkbox" type="checkbox" id="d1" checked><label for="d1"><span class="t">Review the pull request</span><small>🔴 High</small></label></li>
+        <li><input class="checkbox" type="checkbox" id="d2"><label for="d2"><span class="t">Water the plants</span><small>Repeats daily</small></label></li>
+        <li><input class="checkbox" type="checkbox" id="d3"><label for="d3"><span class="t">Plan next week</span><small>🟡 Medium · Due on Friday</small></label></li>
+        <li><input class="checkbox" type="checkbox" id="d4"><label for="d4"><span class="t">Call the landlord</span><small>🟢 Low</small></label></li>
+      </ul>
+    </aside>
+  </section>
+  <section class="points" aria-label="Features">
+    <div><h3>Lists that match your rhythm</h3><p>Daily, Weekly and Monthly lists are ready on day one. Create your own for anything else.</p></div>
+    <div><h3>Tasks that repeat themselves</h3><p>Set a task to repeat daily, weekly or monthly. The next one appears when you finish the last.</p></div>
+    <div><h3>Works without an account</h3><p>Start right away and your tasks stay on this device. Sign in with Google when you want them everywhere.</p></div>
+  </section>
+</main>
+<footer class="site-footer">Tally</footer>
+<script src="Frontend/js/api.js"></script>
+<script src="Frontend/js/landing.js"></script>
+</body>
 </html>

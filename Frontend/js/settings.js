@@ -19,7 +19,7 @@
     } else {
       box.append(h('strong', {}, s.user.name || 'Signed in'), h('span', {}, s.user.email || ''),
         h('button', { class: 'btn btn-secondary btn-sm', type: 'button', style: 'margin-top:.75rem;justify-self:start',
-          onclick: function () { Tally.Auth.logout(); location.href = 'index.html'; } }, 'Sign out'));
+          onclick: function () { Tally.Auth.logout().then(function () { location.href = '../index.html?home'; }); } }, 'Sign out'));
     }
   });
 
